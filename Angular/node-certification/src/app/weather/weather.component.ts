@@ -12,7 +12,7 @@ export class WeatherComponent implements OnInit {
   
   weather_report : IWeather = 
   {
-    weather: 'Enter City Name',
+    weather: 'City Name',
     icon: '?',
     temperature: 0
   }
@@ -53,7 +53,6 @@ export class WeatherComponent implements OnInit {
             }
 
           });
-          //this.callApi(longitude, latitude);
         });
     } else {
        console.log("No support for geolocation")
@@ -62,7 +61,6 @@ export class WeatherComponent implements OnInit {
 
   handleFormSubmit(){
     console.log('Submitted')
-    //this.searchForm.value.cityName
     this.weather_service.get_weather(this.searchForm.value.cityName).subscribe((res:any) => {
       console.log(res)
       this.weather_report = {
