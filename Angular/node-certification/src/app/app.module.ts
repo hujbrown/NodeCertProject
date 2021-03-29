@@ -12,6 +12,10 @@ import { WeatherComponent } from './weather/weather.component';
 import { NewsComponent } from './news/news.component';
 //import { HttpClientModule } from '@angular/common/http';
 import { ReactiveFormsModule } from '@angular/forms';
+import { AboutUsComponent } from './about-us/about-us.component';
+import { ContactUsComponent } from './contact-us/contact-us.component';
+import { FooterComponent } from './footer/footer.component';
+import { HeaderComponent } from './header/header.component';
 
 @NgModule({
   declarations: [
@@ -19,7 +23,11 @@ import { ReactiveFormsModule } from '@angular/forms';
     LatestNewsComponent,
     ChatComponent,
     WeatherComponent,
-    NewsComponent
+    NewsComponent,
+    AboutUsComponent,
+    ContactUsComponent,
+    FooterComponent,
+    HeaderComponent
   ],
   imports: [
     BrowserModule,
