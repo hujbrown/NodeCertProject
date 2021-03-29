@@ -1,0 +1,31 @@
+<div class="container">
+    <form class="col-md-6 offset-md-3" [formGroup]="weatherForm" (ngSubmit)="handleFormSubmit()">
+    <div class="card text-center">
+        <div class="card-header">
+          Get a Weather Report
+        </div>
+        <div class="card-body">
+          <h5 class="card-title">{{weather_report.weather | titlecase}}</h5>
+          <p class="card-text font-weight-bold">Temperature: {{weather_report.temperature | number : '1.0-0'}} 
+            
+          </p>
+
+          <input type="text" class="form-control" placeholder="Enter City Name" formControlName="cityName" name="cityName">
+                <div *ngIf="weatherForm.get('cityName').invalid && 
+                weatherForm.get('cityName').errors && 
+                (weatherForm.get('cityName').dirty || weatherForm.get('cityName').touched)">
+                    <small class="text-danger" *ngIf="weatherForm.get('cityName').hasError('required')">
+                        This field is required.
+                    </small>
+                </div>
+            <br>
+
+            <button type="submit" class="btn btn-primary" [disabled]="weatherForm.invalid"> Search </button>
+        </div>
+        <div class="card-footer bg-success text-white">
+            <img class="img-fluid"
+            [src]="weather_report.icon" alt="Weather Icon">
+        </div>
+      </div>
+    </form>
+</div>
