@@ -8,15 +8,18 @@ import { ChatComponent } from './chat/chat.component';
 import { ChatService } from './chat/components/chat.service';
 import { WebsocketService } from './chat/websocket.service';
 import { SocketIoModule, SocketIoConfig } from 'ngx-socket-io';
-
-
-//const config: SocketIoConfig = { url: 'http://localhost:5000', options: {} };
+import { WeatherComponent } from './weather/weather.component';
+import { NewsComponent } from './news/news.component';
+import { HttpClientModule } from '@angular/common/http';
+import { ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
     AppComponent,
     LatestNewsComponent,
     ChatComponent
+    WeatherComponent,
+    NewsComponent
   ],
   imports: [
     BrowserModule,
@@ -27,6 +30,7 @@ import { SocketIoModule, SocketIoConfig } from 'ngx-socket-io';
   providers: [
     //ChatService,
     //WebsocketService
+    ReactiveFormsModule
   ],
   bootstrap: [AppComponent]
 })
