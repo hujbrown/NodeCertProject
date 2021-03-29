@@ -4,7 +4,7 @@ const AuthController = require('../controllers/controlAuth');
 
 const router = express.Router();
 
-// /api/auth/login
+// /api/sec/auth/login
 router.post('/login', AuthController.login);
 
 module.exports = router;

@@ -8,7 +8,7 @@ router.get('/', function(req, res, next) {
   News.find({}, (err, newsData)=>{
     if(!err){
       //console.log(newsData);
-      res.status(200).render('homepage', { title: 'Hello World', newsData: newsData });
+      res.status(200).render('homepage', { newsData: newsData });
       //console.log(newsData);
       //res.status(200).json(newsData);
     }

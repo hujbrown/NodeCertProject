@@ -1,4 +1,31 @@
-<div class="container">
-    <h4>News home</h4>
+
+      <div class="container">
     
+    <div class="mb-3 card shadow ">
+        <div class="card-header">
+            Add News Form
+          </div>
+    <form class="card-body" style="width: 80rem;" method="POST" id="addNewsForm">
+        <label for="title" class="form-label">Title</label>
+        <input type="text" name="title" class="form-control" id="title" placeholder="Enter Title">
+        <br>
+        <label for="description" class="form-label">Description</label>
+        <textarea type="text" name="description" class="form-control" id="description" placeholder="Enter Description" rows="4"></textarea>
+        <br>
+        <label for="url" class="form-label">Article Url</label>
+        <input type="text" name="url" class="form-control" id="url" placeholder="Enter article url">
+        <br>
+        <label for="urlToImage" class="form-label">Article Image Link</label>
+        <input type="text" name="urlToImage" class="form-control" id="urlToImage" placeholder="Enter image link">
+
+        <br>
+        <label for="publishedAt">Published At:</label>
+        <input type="date" class="form-control" id="publishedAt" name="publishedAt" required>
+        
+        <br>
+        <button type="submit" class="btn btn-primary">Publish</button>
+    </form>
 </div>
+</div>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.bundle.min.js" integrity="sha384-JEW9xMcG8R+pH31jmWH6WWP0WintQrMb4s7ZOdauHnUtxwoG2vI5DkLtS3qm9Ekf" crossorigin="anonymous"></script>
+

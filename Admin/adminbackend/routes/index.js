@@ -51,7 +51,7 @@ router.post('/login', (req, res) => {
       });
       localStorage.setItem('authtoken', token)
 
-      res.redirect(`/admin/newsForm`)
+      res.redirect(`/admin/homepage`)
     }
   });
 });

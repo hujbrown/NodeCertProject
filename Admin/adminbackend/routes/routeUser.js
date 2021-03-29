@@ -7,7 +7,7 @@ const checkAuth = require('../middleware/check-auth');
 
 const router = express.Router();
 
-// /api/users
+// /api/sec/users
 router.get('/', checkAuth, UserController.getAllUsers);
 router.post('/', UserController.addUser);
 

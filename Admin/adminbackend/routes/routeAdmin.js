@@ -11,12 +11,12 @@ const router = express.Router();
 router.get('/', checkAuth, AdminController.dashboard);
 
 // /admin/news
-router.get('/news', checkAuth);//add admin controller functionality on this function call eg. AdminController.getNewsList
+router.get('/news', checkAuth, AdminController.getNewsList);
 
 // /admin/news/add
-router.get('/news/add', checkAuth);//add admin controller functionality on this function call eg. AdminController.addNews
+router.get('/news/add', checkAuth, AdminController.getNewsForm);
 
 // /admin/news/edit
-router.post('/news/edit', checkAuth);//add admin controller functionality on this function call eg. AdminController.update/edit News
+router.post('/news/edit', checkAuth, AdminController.getNewsEdit);
 
 module.exports = router;

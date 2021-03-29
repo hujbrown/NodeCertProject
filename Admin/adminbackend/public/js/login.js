@@ -4,7 +4,7 @@ $(document).ready(()=>{
         var form_data = $(event.target).serialize();
         $.ajax({
             type: 'POST',
-            url: '/api/auth/login',
+            url: '/api/sec/auth/login',
             data: form_data,
             success: (data)=>{
                 // Save token & id
@@ -31,7 +31,7 @@ $(document).ready(()=>{
         var form_data = $(event.target).serialize();
         $.ajax({
             type: 'POST',
-            url: '/api/users',
+            url: '/api/sec/users',
             data: form_data,
             success: (response)=>{
                 if (response.successMsg) {
