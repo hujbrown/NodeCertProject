@@ -12,6 +12,11 @@ var newsListRouter =require('./routes/api')
 var app = express();
 const port = 3000;
 
+var cors = require('cors')
+
+app.use(cors())
+
+
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs');
@@ -44,8 +49,12 @@ app.use(function(err, req, res, next) {
   res.render('error');
 });
 
+
+
+
 app.listen(port, () => {
   console.log(`Example app listening at http://localhost:${port}`)
 })
+
 
 module.exports = app;
