@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <% include featureViews/head %>   
+    </head>
+    <body>
+        <% include featureViews/menu %>
+        <% include featureViews/alert %>
+        <div class="container" style="width: 40%;">
+            <h2>Register</h2>
+            <form id="registerForm" action="/api/sec/users" method="POST">
+                <div class="form-group">
+                    <label for="email">Name:</label>
+                    <input type="text" class="form-control" id="name" placeholder="Enter Name" name="name" required>
+                </div> 
+                <div class="form-group">
+                    <label for="email">Email:</label>
+                    <input type="email" class="form-control" id="regEmail" placeholder="Enter Email" name="email" required>
+                </div>              
+                <div class="form-group">
+                    <label for="password">Password:</label>
+                    <input type="password" class="form-control" id="regPassword" placeholder="Enter Password" name="password" required>
+                </div>
+                <button type="submit" id="btnLogin" class="btn btn-primary" role="button">REGISTER</button>
+                <button type="reset" id="btnResetLogin" class="btn btn-secondary" role="button">RESET</button>
+            </form>
+            Have an account? <a href="/">Login</a>
+        </div>
+        <script type="text/javascript" src="/js/login.js"></script>
+    </body>
+</html>
+<!-- 
+<form id="registerForm" action="/api/auth/register" method="POST"></form> -->
+
+
