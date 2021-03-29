@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <% include featureViews/head %>     
+    </head>
+    <body>
+        <% include featureViews/menu %>
+        <div class="container">
+            <div
+                id="userInfo"
+                class="alert alert-success">
+                
+            </div>
+            <% include featureViews/alert %>
+            <div id="dashBody">
+                <!-- Load newsform.ejs file, for edit news load editnews.ejs. (this block replaced when menu items are selected) -->
+                <% include newsForm %>
+            </div>
+        </div>
+        <script type="text/javascript" src="/js/admin.js"></script>
+    </body>
+</html>
+
