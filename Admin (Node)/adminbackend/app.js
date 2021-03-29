@@ -10,6 +10,7 @@ var homepageRouter = require('./routes/homepage');
 var addRouter = require('./routes/add')
 var newsListRouter =require('./routes/api')
 var app = express();
+const port = 3000;
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
@@ -42,5 +43,9 @@ app.use(function(err, req, res, next) {
   res.status(err.status || 500);
   res.render('error');
 });
+
+app.listen(port, () => {
+  console.log(`Example app listening at http://localhost:${port}`)
+})
 
 module.exports = app;
