@@ -7,6 +7,13 @@ var cors = require('cors');
 
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
+
+const adminRoutes = require('./routes/routeAdmin');
+const authRoutes = require('./routes/routeAuth');
+
+const userRoutes = require('./routes/routeUser');
+
+
 var homepageRouter = require('./routes/homepage');
 var addRouter = require('./routes/add')
 var newsListRouter =require('./routes/api')
@@ -17,6 +24,11 @@ var cors = require('cors')
 
 app.use(cors())
 
+
+// Middleware used to parse the request data
+const bodyParser = require('body-parser');
+// Middleware for application/json
+app.use(bodyParser.json());
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
@@ -29,7 +41,34 @@ app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
-app.use('/', indexRouter);
+// Middleware for application/json
+app.use(bodyParser.json());
+
+// Middleware for URL encoded
+app.use(express.urlencoded({ extended: true }));
+app.get('/', (req, res) => {
+  if (req.body.successMsg) {
+      console.log('should show successfully registered message')
+      res.render('index', {errorMsg: null, successMsg: req.body.successMsg, isLoggedIn: false}); // Landing Page
+  } else {
+      res.render('index', {errorMsg: null, successMsg: null, isLoggedIn: false}); // Landing Page
+  }
+});
+
+app.get('/register', (req, res) => {
+  if (req.body.successMsg) {
+      console.log('should show successfully registered message')
+      res.render('register', {errorMsg: null, successMsg: req.body.successMsg, isLoggedIn: false}); // Landing Page
+  } else {
+      res.render('register', {errorMsg: null, successMsg: null, isLoggedIn: false}); // Landing Page
+  }
+});
+
+app.use('/admin', adminRoutes);
+app.use('/api/sec/auth', authRoutes);
+
+app.use('/api/sec/users', userRoutes);
+//app.use('/', indexRouter);
 app.use('/users', usersRouter);
 app.use('/homepage', homepageRouter);
 app.use('/add', addRouter);

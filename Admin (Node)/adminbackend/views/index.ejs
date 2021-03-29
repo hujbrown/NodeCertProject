@@ -1,11 +1,36 @@
 <!DOCTYPE html>
-<html>
-  <head>
-    <title><%= title %></title>
-    <link rel='stylesheet' href='/stylesheets/style.css' />
-  </head>
-  <body>
-    <h1><%= title %></h1>
-    <p>Welcome to <%= title %></p>
-  </body>
+<html lang="en">
+    <head>
+        <% include featureViews/head %>     
+    </head>
+    <body>
+        <% include featureViews/menu %>
+        <% include featureViews/alert %>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6">
+                    <h4>LOG IN</h4>
+                    <form id="loginForm" action="/api/sec/auth/login" method="POST">
+                        <div class="form-group">
+                            <label for="email">Email:</label>
+                            <input type="email" class="form-control" id="email" placeholder="Enter Email" name="email" required>
+                        </div>              
+                        <div class="form-group">
+                            <label for="password">Password:</label>
+                            <input type="password" class="form-control" id="password" placeholder="Enter Password" name="password" required>
+                        </div>
+                        <div class="text-center">
+                            <button type="submit" id="btnRegister" class="btn btn-success" role="button">Log In</button>
+                            <button type="reset" id="btnResetRegister" class="btn btn-secondary" role="button">RESET</button>
+                        </div>
+                    </form>
+                    <div class="text-center">
+                    Don't have an account? <a href="/register">Register</a>
+                </div>
+                </div>
+                
+            </div>
+        </div>
+        <script type="text/javascript" src="/js/login.js"></script>
+    </body>
 </html>
