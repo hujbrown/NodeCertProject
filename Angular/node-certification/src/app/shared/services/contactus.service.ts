@@ -17,13 +17,14 @@ export class ContactusService {
 
   //  console.log(email , query);
   
-    const test = `{"email": "${email}", "query": "${query}"}`;
+    const test = `{"Email": "${email}", "Msg": "${query}"}`;
 
     const httpOptions = {
       headers: new HttpHeaders({
         'Content-Type': 'application/json'
       })
     }
+    console.log(test)
     return this.http.post(url, test, httpOptions);
 
   }
