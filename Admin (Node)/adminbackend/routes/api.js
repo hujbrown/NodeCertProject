@@ -2,6 +2,7 @@ var express = require('express');
 var router = express.Router();
 const News = require('../models/news');
 const Contact = require('../models/contact');
+
 /* GET home page. */
 router.get('/newslist', function(req, res, next) {
     News.find({}, (err, newsData)=>{
