@@ -1,7 +1,7 @@
 var express = require('express');
 var router = express.Router();
 const News = require('../models/news');
-
+const Contact = require('../models/contact');
 /* GET home page. */
 router.get('/newslist', function(req, res, next) {
     News.find({}, (err, newsData)=>{
@@ -30,5 +30,19 @@ router.get('/newslist', function(req, res, next) {
       }
     }) 
   });
+
+  router.post('/contactus', function(req, res, next) {
+    const contactDao = new Contact(req.body);
+    contactDao.save((err, status)=>{
+      if(!err){
+        console.log("Contact Info Saved");
+        res.send("<h1>We will contact you soon...</h1>");
+      }
+      else{
+        res.send("<h1>Unable to send...</h1>");
+      }
+      console.log(req.body);
+    })
+   });
 
   module.exports = router;
