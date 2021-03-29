@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
-import * as io from 'socket.io-client';
+//import * as io from 'socket.io-client';
 import { Observable, Subject } from 'rxjs';
-import * as Rx from 'rxjs/Rx';
+//import * as Rx from 'rxjs/Rx';
 import 'rxjs/add/observable/of';
 import { environment } from '../../environments/environment';
 
@@ -12,7 +12,7 @@ export class WebsocketService {
   
   // private socket!: SocketIOClient.Socket;
 
-  // constructor() { }
+  constructor() { }
 
 
   // connect(): Rx.Subject<MessageEvent> {

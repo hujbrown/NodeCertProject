@@ -7,17 +7,17 @@ import { LatestNewsComponent } from './latest-news/latest-news.component';
 import { ChatComponent } from './chat/chat.component';
 import { ChatService } from './chat/components/chat.service';
 import { WebsocketService } from './chat/websocket.service';
-import { SocketIoModule, SocketIoConfig } from 'ngx-socket-io';
+//import { SocketIoModule, SocketIoConfig } from 'ngx-socket-io';
 import { WeatherComponent } from './weather/weather.component';
 import { NewsComponent } from './news/news.component';
-import { HttpClientModule } from '@angular/common/http';
+//import { HttpClientModule } from '@angular/common/http';
 import { ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
     AppComponent,
     LatestNewsComponent,
-    ChatComponent
+    ChatComponent,
     WeatherComponent,
     NewsComponent
   ],
@@ -26,11 +26,12 @@ import { ReactiveFormsModule } from '@angular/forms';
     AppRoutingModule,
     HttpClientModule,
     //SocketIoModule.forRoot(config)
+    ReactiveFormsModule
   ],
   providers: [
     //ChatService,
     //WebsocketService
-    ReactiveFormsModule
+    //ReactiveFormsModule
   ],
   bootstrap: [AppComponent]
 })

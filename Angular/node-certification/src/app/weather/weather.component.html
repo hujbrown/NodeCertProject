@@ -1,5 +1,5 @@
 <div class="container">
-    <form class="col-md-6 offset-md-3" [formGroup]="searchForm" (ngSubmit)="handleFormSubmit()">
+    <form class="col-md-6 offset-md-3" [formGroup]="weatherForm" (ngSubmit)="handleFormSubmit()">
     <div class="card text-center">
         <div class="card-header">
           Get a Weather Report
@@ -11,16 +11,16 @@
           </p>
 
           <input type="text" class="form-control" placeholder="Enter City Name" formControlName="cityName" name="cityName">
-                <div *ngIf="searchForm.get('cityName').invalid && 
-                searchForm.get('cityName').errors && 
-                (searchForm.get('cityName').dirty || searchForm.get('cityName').touched)">
-                    <small class="text-danger" *ngIf="searchForm.get('cityName').hasError('required')">
+                <div *ngIf="weatherForm.get('cityName').invalid && 
+                weatherForm.get('cityName').errors && 
+                (weatherForm.get('cityName').dirty || weatherForm.get('cityName').touched)">
+                    <small class="text-danger" *ngIf="weatherForm.get('cityName').hasError('required')">
                         This field is required.
                     </small>
                 </div>
             <br>
 
-            <button type="submit" class="btn btn-primary" [disabled]="searchForm.invalid"> Search </button>
+            <button type="submit" class="btn btn-primary" [disabled]="weatherForm.invalid"> Search </button>
         </div>
         <div class="card-footer bg-success text-white">
             <img class="img-fluid"

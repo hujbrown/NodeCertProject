@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 // import { io } from "socket.io-client";
 // import * as io from "socket.io-client";
-import { Socket } from 'ngx-socket-io';
+//import { Socket } from 'ngx-socket-io';
 import { map } from 'rxjs/operators';
 
 import {Observable} from 'rxjs';
@@ -11,7 +11,7 @@ import {Observable} from 'rxjs';
 })
 export class ChatService {
 
-  constructor(private socket: Socket) { }
+  constructor() { }
 
 
   // sendMessage(msg: string) {

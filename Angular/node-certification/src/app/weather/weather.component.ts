@@ -20,10 +20,10 @@ export class WeatherComponent implements OnInit {
 
   weather_icon_base: string = 'http://openweathermap.org/img/wn/'
 
-  searchForm: any
+  weatherForm: any
 
   constructor(private fb: FormBuilder, private weather_service : WeatherService) { 
-    this.searchForm = this.fb.group({
+    this.weatherForm = this.fb.group({
       cityName: ['', Validators.required],
     });
   }
@@ -44,7 +44,7 @@ export class WeatherComponent implements OnInit {
           const latitude = (position.coords.latitude);
           console.log('Long: ', longitude, '\nLat: ', latitude)
           this.weather_service.get_weather_coords(latitude, longitude).subscribe((res:any) => {
-            this.searchForm.setValue({cityName: res.name})
+            this.weatherForm.setValue({cityName: res.name})
             console.log(res.name)
             this.weather_report = {
               weather: res.weather[0].description,
@@ -61,7 +61,7 @@ export class WeatherComponent implements OnInit {
 
   handleFormSubmit(){
     console.log('Submitted')
-    this.weather_service.get_weather(this.searchForm.value.cityName).subscribe((res:any) => {
+    this.weather_service.get_weather(this.weatherForm.value.cityName).subscribe((res:any) => {
       console.log(res)
       this.weather_report = {
         weather: res.weather[0].description,
