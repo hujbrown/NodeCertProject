@@ -21,7 +21,6 @@
     "@angular/platform-browser-dynamic": "~11.2.3",
     "@angular/router": "~11.2.3",
     "@ng-bootstrap/ng-bootstrap": "^9.1.0",
-    "@types/socket.io-client": "^1.4.36",
     "axios": "^0.21.1",
     "bootstrap": "^4.6.0",
     "cors": "^2.8.5",

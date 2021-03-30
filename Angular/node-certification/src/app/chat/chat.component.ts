@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ModalDismissReasons, NgbModal } from '@ng-bootstrap/ng-bootstrap';
-import { io } from 'socket.io-client';
+import {io} from 'socket.io-client';
 
 @Component({
   selector: 'app-chat',
@@ -27,7 +27,7 @@ export class ChatComponent implements OnInit {
 
 
   setupSocketConnection() {
-    this.socket = io(this.SOCKET_ENDPOINT);
+    this.socket = io((this.SOCKET_ENDPOINT));
     this.socket.on('message-broadcast', (msg: string) => {
     if (msg) {
      this.messageList.push(msg);
