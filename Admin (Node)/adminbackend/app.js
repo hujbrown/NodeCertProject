@@ -18,10 +18,8 @@ var homepageRouter = require('./routes/homepage');
 var addRouter = require('./routes/add')
 var newsListRouter =require('./routes/api')
 var app = express();
-var http = require('http').createServer(app);
-const io_port =  3200;
 const port = 3000;
-const io = require('socket.io')(http);
+
 
 var cors = require('cors')
 
@@ -58,9 +56,7 @@ app.get('/', (req, res) => {
   }
 });
 
-app.get('/chat', (req, res) => {
-  res.sendFile(__dirname + '/public/index.html');
-});
+
 
 app.get('/register', (req, res) => {
   if (req.body.successMsg) {
@@ -105,27 +101,6 @@ app.listen(port, () => {
   console.log(`Example app listening at http://localhost:${port}`)
 })
 
-http.listen(io_port, () => {
-    console.log(`Chat app listening on *:${io_port}`);
-});
 
-io.on('connection', (socket) => { /* socket object may be used to send specific messages to the new connected client */
-    console.log('New User connected');
-
-  // attaching listener to the emitted event
-  socket.on('chat', (data) => {
-    // Chat message received
-    console.log(data);
-
-    // Let's send chat message to all connected socket clients.
-    let payload = {
-      message: data.chatMsg,
-      nickName: data.nickName
-    };
-
-    socket.emit('newChat', payload);
-    socket.broadcast.emit('newChat', payload);
-  });
-});
 
 module.exports = app;
