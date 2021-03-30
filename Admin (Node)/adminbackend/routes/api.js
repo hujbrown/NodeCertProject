@@ -49,10 +49,10 @@ router.get('/newslist', function(req, res, next) {
     contactDao.save((err, status)=>{
       if(!err){
         console.log("Contact Info Saved");
-        res.json("<h1>We will contact you soon...</h1>");
+        res.json("We will contact you soon...");
       }
       else{
-        res.json("<h1>Unable to send...</h1>");
+        res.json("Unable to send...");
       }
       console.log(req.body);
     })

@@ -15,17 +15,6 @@ export class WeatherService {
   // http://openweathermap.org/img/wn/10d@2x.png
   weather_icon_base: string = 'http://openweathermap.org/img/wn/'
 
-  /*
-  req.body returned that we need
-  result.weather.description
-  result.weather.icon
-    Append the icon string + .png to the icon base url
-  result.main.temp
-    This is in kelvin, convert to Fahrenheit
-
-
-  */
-
   constructor(private http: HttpClient) { }
 
 
@@ -39,9 +28,6 @@ export class WeatherService {
   get_weather(city_name : string): Observable<any> {
     return this.http.get(this.base_url + '?q=' + city_name + this.api_key)
     .pipe( map( (res:any ) => {
-      //let description = res.weather.description
-      //let icon_url = this.weather_icon_base + res.weather.icon + '.png'
-      //let temp = this.to_fahrenheit(res.main.temp)
       return res;
     }));
   }
@@ -49,9 +35,6 @@ export class WeatherService {
   get_weather_coords(lat : number, lon : number): Observable<any> {
     return this.http.get(this.base_url + '?lat=' + lat + '&lon=' + lon + this.api_key)
     .pipe( map( (res:any ) => {
-      //let description = res.weather.description
-      //let icon_url = this.weather_icon_base + res.weather.icon + '.png'
-      //let temp = this.to_fahrenheit(res.main.temp)
       return res;
     }));
   }

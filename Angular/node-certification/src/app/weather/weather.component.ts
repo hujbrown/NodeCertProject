@@ -42,10 +42,8 @@ export class WeatherComponent implements OnInit {
         navigator.geolocation.getCurrentPosition((position)=>{
           const longitude = (position.coords.longitude);
           const latitude = (position.coords.latitude);
-          console.log('Long: ', longitude, '\nLat: ', latitude)
           this.weather_service.get_weather_coords(latitude, longitude).subscribe((res:any) => {
             this.weatherForm.setValue({cityName: res.name})
-            console.log(res.name)
             this.weather_report = {
               weather: res.weather[0].description,
               icon: this.weather_icon_base + res.weather[0].icon + '.png',
@@ -62,7 +60,6 @@ export class WeatherComponent implements OnInit {
   handleFormSubmit(){
     console.log('Submitted')
     this.weather_service.get_weather(this.weatherForm.value.cityName).subscribe((res:any) => {
-      console.log(res)
       this.weather_report = {
         weather: res.weather[0].description,
         icon: this.weather_icon_base + res.weather[0].icon + '.png',

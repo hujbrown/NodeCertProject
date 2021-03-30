@@ -6,7 +6,8 @@
         </div>
         <div class="card-body">
           <h5 class="card-title">{{weather_report.weather | titlecase}}</h5>
-          <p class="card-text font-weight-bold">Temperature: {{weather_report.temperature | number : '1.0-0'}} 
+          <p class="card-text font-weight-bold"><img class="img-fluid"
+            [src]="weather_report.icon" alt=""> Temperature: {{weather_report.temperature | number : '1.0-0'}} 
             
           </p>
           <div class="input-group mb-3">
@@ -27,9 +28,11 @@
 
             
         </div>
+        <!--
         <div class="card-footer bg-success text-white">
             <img class="img-fluid"
             [src]="weather_report.icon" alt="Weather Icon">
         </div>
+        -->
       </div>
     </form>

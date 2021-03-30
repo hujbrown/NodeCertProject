@@ -24,7 +24,7 @@ export class ContactusService {
         'Content-Type': 'application/json'
       })
     }
-    console.log(test)
+    //console.log(test)
     return this.http.post(url, test, httpOptions);
 
   }
