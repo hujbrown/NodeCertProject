@@ -6,19 +6,27 @@
       </button>
     </div>
     <div class="modal-body">
-        <iframe src="http://localhost:3200/chat" width="100%" height="500" frameborder="0" title="Chat Application"></iframe>
-        <!--
-      <form>
-        <div class="form-group">
-          <label for="dateOfBirth">Date of birth</label>
-          <div class="input-group">
-            <input id="dateOfBirth" class="form-control" placeholder="yyyy-mm-dd" name="dp" ngbDatepicker #dp="ngbDatepicker">
-            <div class="input-group-append">
-              <button class="btn btn-outline-secondary calendar" (click)="dp.toggle()" type="button"></button>
-            </div>
+        <!-- <iframe src="http://localhost:3200/chat" width="100%" height="500" frameborder="0" title="Chat Application"></iframe> -->
+   
+        <!-- chat app start -->
+        <div class="chat-messages">
+          <label class="username">Name:
+              <input class="chat-name" type="text" [(ngModel)]="name">
+          </label>
+          <div class="chat-messages-show-container">
+              <ul class="chat-messages-show-list">
+                  <li class="msglist-item" *ngFor="let msg of messageList">{{msg}}</li>
+              </ul>
+          </div>
+          <div class="chat-messages-create-container">
+              <!-- <label for="msg"><b>Message</b></label> -->
+              <input class="chat-messages-create-input" type="text" placeholder="Type message.."
+                  [(ngModel)]="message">
+              <button class="chat-messages-create-button" (click)="SendMessage()"> Send </button>
+        
           </div>
         </div>
-      </form>-->
+<!-- chat app end -->
     </div>
     <div class="modal-footer">
       <button type="button" class="btn btn-outline-dark" (click)="modal.close('Save click')">Exit</button>

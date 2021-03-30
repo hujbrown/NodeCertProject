@@ -19,7 +19,15 @@ var addRouter = require('./routes/add')
 var newsListRouter =require('./routes/api')
 var app = express();
 const port = 3000;
+var http = require('http').createServer(app);
 
+const io = require("socket.io")(http, {
+  cors: {
+    origin: "*",
+    methods: ["GET", "POST"]
+  
+  }
+});
 
 var cors = require('cors')
 
@@ -96,10 +104,21 @@ app.use(function(err, req, res, next) {
 
 
 
-
-app.listen(port, () => {
+http.listen(port, "127.0.0.1", () => {
   console.log(`Example app listening at http://localhost:${port}`)
 })
+
+io.on('connection', (socket) =>{
+  console.log('a user connected');
+  socket.on('message', (msg) => {
+    console.log(msg);
+    socket.broadcast.emit('message-broadcast', msg);
+  });
+});
+
+// app.listen(port, () => {
+//   console.log(`Example app listening at http://localhost:${port}`)
+// })
 
 
 
