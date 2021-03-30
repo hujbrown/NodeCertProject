@@ -1,13 +1,12 @@
 <ng-template #content let-modal>
     <div class="modal-header">
-      <h4 class="modal-title" id="modal-basic-title">Profile update</h4>
+      <h4 class="modal-title" id="modal-basic-title">Chat with others!</h4>
       <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
         <span aria-hidden="true">&times;</span>
       </button>
     </div>
     <div class="modal-body">
-        Chat box<br>
-        Not Yet Implemented
+        <iframe src="http://localhost:3200/chat" width="100%" height="500" frameborder="0" title="Chat Application"></iframe>
         <!--
       <form>
         <div class="form-group">
@@ -26,4 +25,4 @@
     </div>
   </ng-template>
   
-  <button class="btn btn-lg btn-outline-primary" style="position:fixed; bottom:0px; right:0px; margin:0px;" (click)="open(content)">Launch Chat</button>
+  <button class="btn btn-lg btn-outline-primary" style="position:fixed; bottom:0px; right:0px; margin:0px;" (click)="openLg(content)">Launch Chat</button>
