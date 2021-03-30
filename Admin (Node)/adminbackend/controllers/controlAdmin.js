@@ -7,7 +7,9 @@ const News = require('../models/news');
 const config = require('../config');
 
 exports.dashboard = (req, res, next) => {
+    console.log('called dashboard')
     res.status(200).render('dashboard',{errorMsg: null, successMsg: null, isLoggedIn: true});
+    //res.status(200).render('add', { title: 'Publish Article', errorMsg: null, successMsg: null, isLoggedIn: true });
 }
 
 
