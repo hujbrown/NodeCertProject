@@ -1,4 +1,4 @@
-<div class="container">
+
     <form class="col-md-6 offset-md-3" [formGroup]="weatherForm" (ngSubmit)="handleFormSubmit()">
     <div class="card text-center">
         <div class="card-header">
@@ -9,8 +9,12 @@
           <p class="card-text font-weight-bold">Temperature: {{weather_report.temperature | number : '1.0-0'}} 
             
           </p>
-
+          <div class="input-group mb-3">
           <input type="text" class="form-control" placeholder="Enter City Name" formControlName="cityName" name="cityName">
+          <div class="input-group-append">
+            <button type="submit" class="btn btn-primary" [disabled]="weatherForm.invalid"> Search </button>
+          </div>
+          
                 <div *ngIf="weatherForm.get('cityName').invalid && 
                 weatherForm.get('cityName').errors && 
                 (weatherForm.get('cityName').dirty || weatherForm.get('cityName').touched)">
@@ -19,8 +23,9 @@
                     </small>
                 </div>
             <br>
+            </div>
 
-            <button type="submit" class="btn btn-primary" [disabled]="weatherForm.invalid"> Search </button>
+            
         </div>
         <div class="card-footer bg-success text-white">
             <img class="img-fluid"
@@ -28,4 +33,3 @@
         </div>
       </div>
     </form>
-</div>
