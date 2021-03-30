@@ -13,10 +13,10 @@ router.get('/', checkAuth, AdminController.dashboard);
 // router.get('/', checkAuth, AdminController.dashboard);
 
 // // /admin/news
-// router.get('/news', checkAuth, AdminController.getNewsList);
+router.get('/news', checkAuth, AdminController.getNewsList);
 
 // // /admin/news/add
-// router.get('/news/add', checkAuth, AdminController.getNewsForm);
+router.get('/news/add', checkAuth, AdminController.getNewsForm);
 
 // // /admin/news/edit
 // router.post('/news/edit', checkAuth, AdminController.getNewsEdit);
