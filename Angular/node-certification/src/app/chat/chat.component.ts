@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ModalDismissReasons, NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { ChatService } from './components/chat.service';
 
 @Component({
@@ -7,6 +8,30 @@ import { ChatService } from './components/chat.service';
   styleUrls: ['./chat.component.css']
 })
 export class ChatComponent implements OnInit {
+
+  closeResult = '';
+  constructor(private modalService: NgbModal) { }
+
+  ngOnInit(): void {
+  }
+
+  open(content: any) {
+    this.modalService.open(content, {ariaLabelledBy: 'modal-basic-title'}).result.then((result) => {
+      this.closeResult = `Closed with: ${result}`;
+    }, (reason) => {
+      this.closeResult = `Dismissed ${this.getDismissReason(reason)}`;
+    });
+  }
+
+  private getDismissReason(reason: any): string {
+    if (reason === ModalDismissReasons.ESC) {
+      return 'by pressing ESC';
+    } else if (reason === ModalDismissReasons.BACKDROP_CLICK) {
+      return 'by clicking on a backdrop';
+    } else {
+      return `with: ${reason}`;
+    }
+  }
 
 
 //     user?:String;
@@ -38,9 +63,6 @@ export class ChatComponent implements OnInit {
 // {
 //     this._chatService.sendMessage({user:this.user, room:this.room, message:this.messageText});
 // }
-
-  ngOnInit(): void {
-  }
 
   // openForm() {
   //   document.getElementById("myForm").style.display = "block";
