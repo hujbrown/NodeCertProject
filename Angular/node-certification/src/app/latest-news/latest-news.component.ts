@@ -26,12 +26,12 @@ export class LatestNewsComponent implements OnInit {
  
   ngOnInit(): void {
 
-    this.latestNewsService.getNewsList()
+    this.latestNewsService.getThreeNews()
     .subscribe( (res: INews[]) => { 
       console.log(res);
       this.newsList = res;
       console.log(res);
-      this.slicedList = this.newsList.slice(0, 3);
+      //this.slicedList = this.newsList.slice(0, 3);
     });
    
 

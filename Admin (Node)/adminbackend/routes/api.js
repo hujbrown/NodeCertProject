@@ -31,16 +31,28 @@ router.get('/newslist', function(req, res, next) {
       }
     }) 
   });
+  
+  router.get('/latestthreenews', function(req, res, next) {
+    News.find({}).sort({'createdOn': -1}).limit(3).exec(function(err,data) {
+        if(!err){
+            
+            res.status(200).json(data)
+        } else {
+            res.json(err)
+            
+        }
+    });
+  });
 
   router.post('/contactus', function(req, res, next) {
     const contactDao = new Contact(req.body);
     contactDao.save((err, status)=>{
       if(!err){
         console.log("Contact Info Saved");
-        res.send("<h1>We will contact you soon...</h1>");
+        res.json("<h1>We will contact you soon...</h1>");
       }
       else{
-        res.send("<h1>Unable to send...</h1>");
+        res.json("<h1>Unable to send...</h1>");
       }
       console.log(req.body);
     })

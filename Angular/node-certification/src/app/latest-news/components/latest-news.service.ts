@@ -20,6 +20,17 @@ getNewsList(): Observable<any> {
 
         return res;
       }));
+}
+
+getThreeNews(): Observable<any> {
+  return this.http.get('http://localhost:3000/api/latestthreenews')
+    .pipe(map((res: any) => {
+      console.log(res);
+      console.log('inside service')
+
+      return res;
+    }));
+}
 
 
-    }}
+}

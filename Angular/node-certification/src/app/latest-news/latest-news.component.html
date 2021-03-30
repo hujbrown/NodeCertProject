@@ -1,19 +1,19 @@
 <div class="container offset-md-3">
   <ngb-carousel >
-    <ng-template ngbSlide *ngFor="let news of slicedList">
+    <ng-template ngbSlide *ngFor="let news of newsList">
       <div class="picsum-img-wrapper">
-        <img [src]="news.urlofimg" alt="Random first slide" style="width: 100%; max-height:600px; margin:0 auto;">
+        <a [href]="news.url"> <img [src]="news.urlofimg" alt="Random first slide" style="width: 100%; max-height:600px; margin:0 auto;"></a>
       </div>
       <div class="carousel-caption">
-        <h3> slide label</h3>
-        <p>Nulla vitae elit libero, a pharetra augue mollis interdum.</p>
+        <h3> {{news.title}}</h3>
+        <!--<p>Nulla vitae elit libero, a pharetra augue mollis interdum.</p>-->
       </div>
     </ng-template>
   </ngb-carousel>
   <div class="row">
 
     
-    <div class="card" style="width: 18rem;" *ngFor="let news of slicedList;  let i=index">
+    <div class="card" style="width: 23rem;" *ngFor="let news of newsList;  let i=index">
       
         <img class="card-img-top" [src]="news.urlofimg" alt="Card image cap">
         <div class="card-body">
