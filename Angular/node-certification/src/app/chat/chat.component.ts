@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ModalDismissReasons, NgbModal } from '@ng-bootstrap/ng-bootstrap';
-import { ChatService } from './components/chat.service';
+import { io } from 'socket.io-client';
 
 @Component({
   selector: 'app-chat',
@@ -10,11 +10,35 @@ import { ChatService } from './components/chat.service';
 export class ChatComponent implements OnInit {
 
   closeResult = '';
+
+  private SOCKET_ENDPOINT = 'localhost:3000';
+  
+  private socket: any;
+  name: string = '';
+  message: string = '';
+  messageList: Array<string> = [];
+
   constructor(private modalService: NgbModal) { }
 
   ngOnInit(): void {
+    this.setupSocketConnection();
+
   }
 
+
+  setupSocketConnection() {
+    this.socket = io(this.SOCKET_ENDPOINT);
+    this.socket.on('message-broadcast', (msg: string) => {
+    if (msg) {
+     this.messageList.push(msg);
+     }
+   });
+ }
+
+  SendMessage() {
+    this.socket.emit('message', `${this.name}: ${this.message}`);
+    this.messageList.push(`${this.name}: ${this.message}`);
+ }
 
   
   openLg(content: any) {
@@ -36,41 +60,4 @@ export class ChatComponent implements OnInit {
   }
 
 
-//     user?:String;
-//     room?:String;
-//     messageText?:String;
-//     messageArray:Array<{user:String,message:String}> = [];
-
-//   constructor(private _chatService:ChatService){
-//     this._chatService.newUserJoined()
-//     .subscribe(data=> this.messageArray.push(data));
-
-
-//     this._chatService.userLeftRoom()
-//     .subscribe(data=>this.messageArray.push(data));
-
-//     this._chatService.newMessageReceived()
-//     .subscribe(data=>this.messageArray.push(data));
-// }
-
-// join(){
-//     this._chatService.joinRoom({user:this.user, room:this.room});
-// }
-
-// leave(){
-//     this._chatService.leaveRoom({user:this.user, room:this.room});
-// }
-
-// sendMessage()
-// {
-//     this._chatService.sendMessage({user:this.user, room:this.room, message:this.messageText});
-// }
-
-  // openForm() {
-  //   document.getElementById("myForm").style.display = "block";
-  // }
-
-  // closeForm() {
-  //   document.getElementById("myForm").style.display = "none";
-  // }
 }
