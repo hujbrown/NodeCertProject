@@ -5,12 +5,12 @@
       <div class="row g-0">
           <div class="col-md-2 border">
               <img class="img-fluid"
-                  [src]="newsItem.thumbnail_url" alt="News Pic">
+                  [src]="newsItem.urlofimg" alt="News Pic">
           </div>
           <div class="col-md-9 border">
               <div class="card-body">
                   <h5 class="card-title font-weight-bold">{{newsItem.title}}
-                    <a [href]="newsItem.article_url" class="btn btn-primary float-right">See Article</a>
+                    <a [href]="newsItem.url" class="btn btn-primary float-right">See Article</a>
                   </h5>
                   <p class="card-text">{{newsItem.description}}</p>
               </div>

@@ -9,8 +9,8 @@ import { INews } from '../interfaces/news';
 })
 export class NewsService {
 
-  base_url: string = 'http://localhost:3500/api/news'
-
+  base_url: string = 'http://localhost:3000/api/newslist'
+/*
   dummy_news: INews[] = [
     {
       title: 'A Heavily Armed Man at a Grocery Store Adds to Anxiety in Atlanta',
@@ -25,19 +25,18 @@ export class NewsService {
       article_url: 'https://www.nytimes.com/interactive/2021/03/26/us/virus-this-week.html'
     }
   ]
+  */
   constructor(private http: HttpClient) { }
 
 
 
 
-  get_news(): any/*Observable<any>*/ {
-    /*
+  get_news(): Observable<any> {
     return this.http.get(this.base_url)
     .pipe( map( (res:any ) => {
       return res;
     }));
-    */
-    return this.dummy_news
+    //return this.dummy_news
   }
 
 }

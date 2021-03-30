@@ -16,6 +16,7 @@ export class LatestNewsComponent implements OnInit {
 
 
   newsList: INews[] = [];
+  slicedList: INews[] = [];
 
   //newsList: any;
 
@@ -28,7 +29,9 @@ export class LatestNewsComponent implements OnInit {
     this.latestNewsService.getNewsList()
     .subscribe( (res: INews[]) => { 
       console.log(res);
-      this.newsList  = res;
+      this.newsList = res;
+      console.log(res);
+      this.slicedList = this.newsList.slice(0, 3);
     });
    
 
