@@ -13,7 +13,7 @@
           <div class="input-group mb-3">
           <input type="text" class="form-control" placeholder="Enter City Name" formControlName="cityName" name="cityName">
           <div class="input-group-append">
-            <button type="submit" class="btn btn-primary" [disabled]="weatherForm.invalid"> Search </button>
+            <button type="submit" class="btn btn-primary" [disabled]="weatherForm.invalid"> Get Weather </button>
           </div>
           
                 <div *ngIf="weatherForm.get('cityName').invalid && 
