@@ -1,40 +1,61 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <% include featureViews/head %>   
-    </head>
-    <body>
-        <% include featureViews/menu %>
-        <% include featureViews/alert %>
-        <div class="container">
-        <div class="row justify-content-center">
-            
-            <div class="col-md-6">
-            <h4 class="text-center">REGISTER</h4>
-            <form id="registerForm" action="/api/sec/users" method="POST">
+
+<head>
+    <style>
+        .errr {
+            color: red;
+            font-weight: bold;
+            text-align: center;
+        }
+
+        .succ {
+            color: green;
+            font-weight: bold;
+            text-align: center;
+        }
+    </style>
+    <% include featureViews/head %>
+</head>
+
+<body>
+    <% include featureViews/menuItemsLoggedOut %>
+        <div class="container" style="width: 40%;">
+            <div class="text-center">
+                <h2>Register</h2>
+            </div>
+            <form id="registerForm" action="/auth/register" method="POST">
                 <div class="form-group">
                     <label for="email">Name:</label>
                     <input type="text" class="form-control" id="name" placeholder="Enter Name" name="name" required>
-                </div> 
+                </div>
                 <div class="form-group">
                     <label for="email">Email:</label>
-                    <input type="email" class="form-control" id="regEmail" placeholder="Enter Email" name="email" required>
-                </div>              
+                    <input type="email" class="form-control" id="email" placeholder="Enter Email" name="email" required>
+                </div>
                 <div class="form-group">
                     <label for="password">Password:</label>
-                    <input type="password" class="form-control" id="regPassword" placeholder="Enter Password" name="password" required>
+                    <input type="password" class="form-control" id="password" placeholder="Enter Password"
+                        name="password" required>
                 </div>
-                <button type="submit" id="btnLogin" class="btn btn-primary" role="button">REGISTER</button>
-                <button type="reset" id="btnResetLogin" class="btn btn-secondary" role="button">RESET</button>
+                <div class="text-center">
+                    <div class="errr">
+                        <%=error%>
+                    </div>
+                    <div class="succ">
+                        <%=msg%>
+                    </div>
+                    <hr />
+                    <button type="submit" id="btnLogin" class="btn btn-primary" role="button">Register</button>
+                    <button type="reset" id="btnResetLogin" class="btn btn-secondary" role="button">Reset</button>
+                    <br><br>
+                </div>
+                <div class="text-center">
+                    Have an account? <a href="/">Login</a>
+                </div>
+    
             </form>
-            Have an account? <a href="/">Login</a>
-            </div>
         </div>
-        </div>
-        <script type="text/javascript" src="/js/login.js"></script>
-    </body>
+        <% include featureViews/footer %>
+</body>
 </html>
-<!-- 
-<form id="registerForm" action="/api/auth/register" method="POST"></form> -->
-
-
