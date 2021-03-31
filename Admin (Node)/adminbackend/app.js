@@ -8,16 +8,15 @@ var cors = require('cors');
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
 
-const adminRoutes = require('./routes/routeAdmin');
-const authRoutes = require('./routes/routeAuth');
-
-const userRoutes = require('./routes/routeUser');
+var app = express();
+const authRouter = require('./routes/auth');
+const userRoutes = require('./routes/users');
 
 
 var homepageRouter = require('./routes/homepage');
 var addRouter = require('./routes/add')
 var newsListRouter =require('./routes/api')
-var app = express();
+
 const port = 3000;
 var http = require('http').createServer(app);
 
@@ -39,6 +38,13 @@ const bodyParser = require('body-parser');
 // Middleware for application/json
 app.use(bodyParser.json());
 
+const session = require('express-session')
+app.use(session({
+  secret: 'mySecretKey',
+  resave: false,
+  saveUninitialized: true
+}));
+
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs');
@@ -55,35 +61,52 @@ app.use(bodyParser.json());
 
 // Middleware for URL encoded
 app.use(express.urlencoded({ extended: true }));
-app.get('/', (req, res) => {
-  if (req.body.successMsg) {
-      console.log('should show successfully registered message')
-      res.render('index', {errorMsg: null, successMsg: req.body.successMsg, isLoggedIn: false}); // Landing Page
-  } else {
-      res.render('index', {errorMsg: null, successMsg: null, isLoggedIn: false}); // Landing Page
-  }
-});
+// app.get('/', (req, res) => {
+//   if (req.body.successMsg) {
+//       console.log('should show successfully registered message')
+//       res.render('index', {errorMsg: null, successMsg: req.body.successMsg, isLoggedIn: false}); // Landing Page
+//   } else {
+//       res.render('index', {errorMsg: null, successMsg: null, isLoggedIn: false}); // Landing Page
+//   }
+// });
 
+// app.get('/register', (req, res) => {
+//   if (req.body.successMsg) {
+//       console.log('should show successfully registered message')
+//       res.render('register', {errorMsg: null, successMsg: req.body.successMsg, isLoggedIn: false}); // Landing Page
+//   } else {
+//       res.render('register', {errorMsg: null, successMsg: null, isLoggedIn: false}); // Landing Page
+//   }
+// });
 
+app.use('/auth', authRouter);
 
-app.get('/register', (req, res) => {
-  if (req.body.successMsg) {
-      console.log('should show successfully registered message')
-      res.render('register', {errorMsg: null, successMsg: req.body.successMsg, isLoggedIn: false}); // Landing Page
-  } else {
-      res.render('register', {errorMsg: null, successMsg: null, isLoggedIn: false}); // Landing Page
-  }
-});
-
-app.use('/admin', adminRoutes);
-app.use('/api/sec/auth', authRoutes);
-
-app.use('/api/sec/users', userRoutes);
 //app.use('/', indexRouter);
 app.use('/users', usersRouter);
 app.use('/homepage', homepageRouter);
 app.use('/add', addRouter);
 app.use('/api', newsListRouter);
+
+let sess;
+
+app.get('/', (req, res) => {
+  sess = req.session;
+  sess.email = " ";
+  res.render('index', {
+    error: req.query.valid ? req.query.valid : '',
+    msg: req.query.msg ? req.query.msg : ''
+  });
+});
+
+app.get('/register', (req, res) => {
+  sess = req.session;
+  sess.email = " ";
+  res.render('register',
+    {
+      error: req.query.valid ? req.query.valid : '',
+      msg: req.query.msg ? req.query.msg : ''
+    });
+});
 
 
 // catch 404 and forward to error handler
