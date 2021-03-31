@@ -13,7 +13,7 @@ export class LatestNewsService {
   constructor(private http: HttpClient) { }
  
 getNewsList(): Observable<any> {
-    return this.http.get('http://localhost:3000/api/newslist')
+    return this.http.get('http://localhost:3000/api/newsList')
       .pipe(map((res: any) => {
 
         return res;
@@ -21,7 +21,7 @@ getNewsList(): Observable<any> {
 }
 
 getThreeNews(): Observable<any> {
-  return this.http.get('http://localhost:3000/api/latestthreenews')
+  return this.http.get('http://localhost:3000/api/newsList?numArticles=3')
     .pipe(map((res: any) => {
 
       return res;
