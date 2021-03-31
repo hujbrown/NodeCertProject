@@ -15,6 +15,7 @@ import { FooterComponent } from './footer/footer.component';
 import { HeaderComponent } from './header/header.component';
 import { HomepageComponent } from './homepage/homepage.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { PagenotfoundComponent } from './pagenotfound/pagenotfound.component';
 
 @NgModule({
   declarations: [
@@ -27,7 +28,8 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
     ContactUsComponent,
     FooterComponent,
     HeaderComponent,
-    HomepageComponent
+    HomepageComponent,
+    PagenotfoundComponent,
   ],
   imports: [
     BrowserModule,
