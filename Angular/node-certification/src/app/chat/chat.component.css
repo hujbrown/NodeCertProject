@@ -77,6 +77,7 @@
       display: flex;
       color: aliceblue;
       padding: 5px;
+      font-size: 20px;
     }
     
     .chat-name {
@@ -90,7 +91,7 @@
       width: 400px;
     } */
     .chat-messages-show-container{
-       background: #c3c3c3;
+       background: #8bb4e6;
        height: 400px;
        display: flex;
        flex-direction: column;
@@ -102,7 +103,7 @@
        padding: 0;
     }
     .chat-messages-create-container{
-       background: #616161;
+       background: #123580;
        height: 100px;
        display: flex;
        justify-content: center;
@@ -116,6 +117,8 @@
     .chat-messages-create-button {
        height: 50px;
        margin: auto 10px;
+       background: white;
+
     }
     
     .msglist-item{
