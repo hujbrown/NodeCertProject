@@ -3,6 +3,6 @@ export interface INews{
     title: String, 
     description: String,
     url: String, 
-    urlofimg: String,
+    imgUrl: String,
     createdOn: Date
 }

@@ -42,13 +42,11 @@ router.post('/', function (req, res, next) {
       const newsDao = new News(req.body);
       newsDao.save((err, status) => {
         if (!err) {
-          console.log("News has been saved");
-          res.send("<h1>You article will be published soon...</h1>");
+          res.redirect("/newsList");
         }
         else {
           res.send("<h1>Unable to publish...</h1>");
         }
-        console.log(req.body);
       })
     });
 

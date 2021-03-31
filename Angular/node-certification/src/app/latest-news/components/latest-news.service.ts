@@ -23,7 +23,7 @@ getNewsList(): Observable<any> {
 getThreeNews(): Observable<any> {
   return this.http.get('http://localhost:3000/api/newsList?numArticles=3')
     .pipe(map((res: any) => {
-
+      
       return res;
     }));
 }

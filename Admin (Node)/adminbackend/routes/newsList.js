@@ -8,13 +8,9 @@ const jwt = require('jsonwebtoken');
 localStorage = new LocalStorage('./scratch');
 
 /* GET home page. */
-// router.get('/', function(req, res, next) {
-//   res.send("<h1>please login</h1>");
 
-// });
 router.get('/', function(req, res, next) {
   var token = localStorage.getItem('authtoken')
-   // console.log("token>>>", token)
     if (!token) {
         res.redirect('/')
     }
@@ -28,10 +24,7 @@ router.get('/', function(req, res, next) {
             
             News.find({}, (err, newsData)=>{
               if(!err){
-                //console.log(newsData);
                 res.status(200).render('newsList', { title: 'News List', newsData: newsData, user});
-                //console.log(newsData);
-                //res.status(200).json(newsData);
               }
               else{
                 res.json(err);
@@ -56,21 +49,16 @@ router.post('/editNews', function(req, res, next) {
       if (err) { res.redirect('/') }
       if (!user) { res.redirect('/') }
 
-      console.log(req.body._id);
-      console.log('Router put received')
       News.findOneAndUpdate({_id: req.body._id }, 
         {title: req.body.title ,
          description: req.body.description,
          url: req.body.url,
          imgUrl: req.body.imgUrl},{new: true}, (err, doc) =>{
         if (!err){
-          //res.send("<h1>You article will be published soon...</h1>");
-          res.send(" <h1>Post has been Edited</h1>");
-          console.log("ok" + doc);
+          res.redirect("/newsList");
         }
         else{
-            //console.log(doc);
-            //console.log(err);
+          res.send("<h1>Unable to edit...</h1>");
         }
       })
     });
@@ -82,11 +70,11 @@ router.post('/editNews', function(req, res, next) {
  router.post('/deleteNews', function(req, res, next) {
  News.findOneAndDelete({_id: req.body._id }, function (err, docs) {
   if (err){
-      console.log(err)
+      res.send("<h1>Unable to delete...</h1>");
   }
   else{
       console.log("Deleted news : ", docs);
-      res.send(" <h1>Post has been Deleted</h1>");
+      res.redirect("/newsList");
   }
 })
 });

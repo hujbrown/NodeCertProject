@@ -69,36 +69,11 @@ router.post('/login', function (req, res) {
                     expiresIn: 86400 // expires in 24 hours
                 });
                 localStorage.setItem('authtoken', token);
-                res.redirect(`/newsList`);//instead of profile newsForm or editNews will come here...
+                res.redirect(`/newsList`);
             }
         }
     });
 });
-
-//template to add routing with checking token
-
-// router.get('/routingurl', function (req, res) {
-//     var token = localStorage.getItem('authtoken')
-//    // console.log("token>>>", token)
-//     if (!token) {
-//         res.redirect('/')
-//     }
-//     jwt.verify(token, config.secret, function (err, decoded) {
-//         if (err) {
-//             res.redirect('/')
-//         }
-//         User.findById(decoded.id, { password: 0 }, function (err, user) {
-//             if (err) { res.redirect('/') }
-//             if (!user) { res.redirect('/') }
-
-
-//             /// add your routing code here
-
-
-
-//         });
-//     });
-// });
 
 
 router.get('/logout', (req, res) => {
