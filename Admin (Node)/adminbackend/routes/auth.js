@@ -12,7 +12,7 @@ const bcrypt = require('bcryptjs'); // For encrypting Password
 const config = require('../config/config.js'); // For Secert Token
 
 // For the Schema 
-const User = require('../models/adminuser');
+const User = require('../models/admin');
 const Newslist = require('../models/news')
 
 const session = require('express-session');
@@ -69,7 +69,7 @@ router.post('/login', function (req, res) {
                     expiresIn: 86400 // expires in 24 hours
                 });
                 localStorage.setItem('authtoken', token);
-                res.redirect(`/homepage/home`);//instead of profile newsForm or editNews will come here...
+                res.redirect(`/newsList`);//instead of profile newsForm or editNews will come here...
             }
         }
     });
