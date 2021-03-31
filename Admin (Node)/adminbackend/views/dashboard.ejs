@@ -1,22 +1,20 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <% include featureViews/head %>     
-    </head>
-    <body>
-        <% include featureViews/menu %>
-        <div class="container">
-            <div
-                id="userInfo"
-                class="alert alert-success">
-                
-            </div>
-            <% include featureViews/alert %>
-            <div id="dashBody">
-                <!-- Load add news form by default, this area gets replaced when menu items are selected -->
-                Add and edit news!
-            </div>
+<head>
+    <% include featureViews/head %>
+</head>
+<body>
+    <% include featureViews/menuItemsLoggedIn %>
+    <div class="text-center">
+        <h1>Profile page</h1>
+    </div>
+    <hr/>
+    <div class="text-center">
+        <div class="alert alert-info">
+            <span>User Name  : <%= user.name %>,  </span><br>
+            <span>Email : <%= user.email %>  </span>
         </div>
-        <script type="text/javascript" src="/js/admin.js"></script>
-    </body>
+    </div>
+    <% include featureViews/footer %>
+</body>
 </html>
