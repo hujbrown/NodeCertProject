@@ -5,17 +5,17 @@ var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 var cors = require('cors');
 
-var indexRouter = require('./routes/index');
+//var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
 
 var app = express();
 const authRouter = require('./routes/auth');
-const userRoutes = require('./routes/users');
+//const userRoutes = require('./routes/users');
 
 
-var homepageRouter = require('./routes/homepage');
-var addRouter = require('./routes/add')
-var newsListRouter =require('./routes/api')
+var newsListRouter = require('./routes/newsList');
+var addNewsRouter = require('./routes/addNews')
+var newsRouter =require('./routes/news')
 
 const port = 3000;
 var http = require('http').createServer(app);
@@ -61,31 +61,14 @@ app.use(bodyParser.json());
 
 // Middleware for URL encoded
 app.use(express.urlencoded({ extended: true }));
-// app.get('/', (req, res) => {
-//   if (req.body.successMsg) {
-//       console.log('should show successfully registered message')
-//       res.render('index', {errorMsg: null, successMsg: req.body.successMsg, isLoggedIn: false}); // Landing Page
-//   } else {
-//       res.render('index', {errorMsg: null, successMsg: null, isLoggedIn: false}); // Landing Page
-//   }
-// });
-
-// app.get('/register', (req, res) => {
-//   if (req.body.successMsg) {
-//       console.log('should show successfully registered message')
-//       res.render('register', {errorMsg: null, successMsg: req.body.successMsg, isLoggedIn: false}); // Landing Page
-//   } else {
-//       res.render('register', {errorMsg: null, successMsg: null, isLoggedIn: false}); // Landing Page
-//   }
-// });
 
 app.use('/auth', authRouter);
 
 //app.use('/', indexRouter);
-app.use('/users', usersRouter);
-app.use('/homepage', homepageRouter);
-app.use('/add', addRouter);
-app.use('/api', newsListRouter);
+// app.use('/users', usersRouter);
+app.use('/newsList', newsListRouter);
+app.use('/addNews', addNewsRouter);
+app.use('/api', newsRouter);
 
 let sess;
 
