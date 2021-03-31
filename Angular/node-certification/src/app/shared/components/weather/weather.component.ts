@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
-import { IWeather } from '../shared/interfaces/weather';
-import { WeatherService } from '../shared/services/weather.service';
+import { IWeather } from '../../interfaces/weather';
+import { WeatherService } from '../../services/weather.service';
 
 @Component({
   selector: 'app-weather',
