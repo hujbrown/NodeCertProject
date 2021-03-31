@@ -20,6 +20,14 @@
       </div>
     </div>
   <div class="container">
+    <% if(msg){ %>
+      <div class="text-center">
+        
+    </div>
+    <div class="alert alert-primary" role="alert">
+      <h4 class="alert-heading text-center" ><%=msg%></h4>
+    </div>
+    <% } %>
     <h4 class="text-center">News List</h4>
     <table id="newsList" class="table">
       <thead class="">
@@ -107,6 +115,15 @@
       $(document).ready(function() {
     $('#newsList').DataTable();
     } );
+
+    $(".alert.alert-primary")
+   .fadeIn( function() 
+   {
+      setTimeout( function()
+      {
+         $(".alert.alert-primary").fadeOut("fast");
+      }, 5000);
+   });
     </script>
   <% include featureViews/footer %>
   </body>

@@ -20,7 +20,7 @@ router.get('/', function (req, res, next) {
     User.findById(decoded.id, { password: 0 }, function (err, user) {
       if (err) { res.redirect('/') }
       if (!user) { res.redirect('/') }
-      res.render('addNews', { user, title: 'Publish Article' })
+      res.render('addNews', { user, title: 'Publish Article', msg: req.query.msg?req.query.msg:''})
     });
   });
 
@@ -42,10 +42,14 @@ router.post('/', function (req, res, next) {
       const newsDao = new News(req.body);
       newsDao.save((err, status) => {
         if (!err) {
-          res.redirect("/newsList");
+          //res.redirect("/newsList");
+          const string = encodeURIComponent('You article is added in news list...');
+          res.redirect('/newsList?msg=' + string);
         }
         else {
-          res.send("<h1>Unable to publish...</h1>");
+          //res.send("<h1>Unable to publish...</h1>");
+          const string = encodeURIComponent('Unable to publish...');
+          res.redirect('/addNews?msg=' + string);
         }
       })
     });

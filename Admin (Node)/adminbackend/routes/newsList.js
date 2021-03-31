@@ -24,7 +24,8 @@ router.get('/', function(req, res, next) {
             
             News.find({}, (err, newsData)=>{
               if(!err){
-                res.status(200).render('newsList', { title: 'News List', newsData: newsData, user});
+                res.status(200).render('newsList', { title: 'News List', newsData: newsData, user,
+                                                      msg: req.query.msg?req.query.msg:''});
               }
               else{
                 res.json(err);
@@ -55,10 +56,14 @@ router.post('/editNews', function(req, res, next) {
          url: req.body.url,
          imgUrl: req.body.imgUrl},{new: true}, (err, doc) =>{
         if (!err){
-          res.redirect("/newsList");
+          //res.redirect("/newsList");
+          const string = encodeURIComponent('News has been Edited');
+          res.redirect('/newsList/?msg=' + string);
         }
         else{
-          res.send("<h1>Unable to edit...</h1>");
+          //res.send("<h1>Unable to edit...</h1>");
+          const string = encodeURIComponent('Error occured updating news');
+          res.redirect('/newsList/?msg=' + string);
         }
       })
     });
@@ -74,7 +79,9 @@ router.post('/editNews', function(req, res, next) {
   }
   else{
       console.log("Deleted news : ", docs);
-      res.redirect("/newsList");
+      //res.redirect("/newsList");
+      const string = encodeURIComponent('News has been Deleted');
+      res.redirect('/newsList/?msg=' + string);
   }
 })
 });

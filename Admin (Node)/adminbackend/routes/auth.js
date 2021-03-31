@@ -42,7 +42,7 @@ router.post('/register', function (req, res) {
                 var token = jwt.sign({ id: user._id }, config.secret, {
                     expiresIn: 86400 // expires in 24 hours
                 });
-                const string = encodeURIComponent('Success Fully Register Please Login');
+                const string = encodeURIComponent('Success Fully Registered. Please Login');
                 res.redirect('/?msg=' + string);
             });
         } else { //duplicate
