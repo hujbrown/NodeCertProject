@@ -69,32 +69,36 @@ router.post('/login', function (req, res) {
                     expiresIn: 86400 // expires in 24 hours
                 });
                 localStorage.setItem('authtoken', token);
-                res.redirect(`/auth/dashboard`);//instead of profile newsForm or editNews will come here...
+                res.redirect(`/homepage/home`);//instead of profile newsForm or editNews will come here...
             }
         }
     });
 });
 
+//template to add routing with checking token
 
-//instead of profile, editNews and newsForm routes will be there..
-// GETS A SINGLE USER FROM THE DATABASE
-router.get('/dashboard', function (req, res) {
-    var token = localStorage.getItem('authtoken')
-    console.log("token>>>",token)
-    if (!token) {
-        res.redirect('/')
-    }
-    jwt.verify(token, config.secret, function(err, decoded) {
-    if (err) {
-        res.redirect('/')
-    };
-        User.findById(decoded.id, { password: 0 }, function (err, user) {
-            if (err) {res.redirect('/')}
-            if (!user) {res.redirect('/')}
-            res.render('dashboard.ejs',{user})
-        });
-    });
-});
+// router.get('/routingurl', function (req, res) {
+//     var token = localStorage.getItem('authtoken')
+//    // console.log("token>>>", token)
+//     if (!token) {
+//         res.redirect('/')
+//     }
+//     jwt.verify(token, config.secret, function (err, decoded) {
+//         if (err) {
+//             res.redirect('/')
+//         }
+//         User.findById(decoded.id, { password: 0 }, function (err, user) {
+//             if (err) { res.redirect('/') }
+//             if (!user) { res.redirect('/') }
+
+
+//             /// add your routing code here
+
+
+
+//         });
+//     });
+// });
 
 
 router.get('/logout', (req, res) => {
