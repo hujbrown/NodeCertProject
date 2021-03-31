@@ -16,10 +16,10 @@
     
     <div class="card" style="width: 16%;" *ngFor="let news of newsList;  let i=index">
       
-        <img class="card-img-top" [src]="news.imgUrl" alt="Card image cap">
+        <a [href]="news.url"><img class="card-img-top" [src]="news.imgUrl" alt="Card image cap"></a>
         <div class="card-body">
           <h5 class="card-title">{{news.title}}</h5>
-          <p class="card-text">{{news.description}}</p>
+          <p class="card-text">{{ (news.description.length>75)? (news.description | slice:0:75)+'...':(news.description) }}</p>
         
         </div>
   
