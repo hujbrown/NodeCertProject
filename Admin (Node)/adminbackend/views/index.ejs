@@ -23,6 +23,9 @@
             <div class="row justify-content-center">
                 <div class="col-md-6">
                     <div class="text-center">
+                        <div class="succ">
+                            <%=msg%>
+                        </div><br>
                         <h2>Login</h2>
                     </div>
                     <form id="loginForm" action="/auth/login" method="POST">
@@ -41,9 +44,7 @@
                             <div class="errr">
                                 <%=error%>
                             </div>
-                            <div class="succ">
-                                <%=msg%>
-                            </div>
+                            
                             <hr />
                             <button type="submit" id="btnLogin" class="btn btn-primary" role="button">Log In</button>
                             <button type="reset" id="btnResetLogin" class="btn btn-secondary"
