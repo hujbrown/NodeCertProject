@@ -1,42 +1,42 @@
-<br><br><br><br>
+<br><br><br>
 
-    <div class="panel">
-        <div class="panel-body">
-            <h5 class="text-center">Contact Us</h5>
-            
-                <div class="panel panel-primary">
-                    <div class="panel-body">
-                      <div class="center">
-                        <form [formGroup]="contactusForm" (ngSubmit)="contactusHandler()">
-                            <div class="form-group">
-                                <label for="email">Email</label>
-                                <input type="email" id="email" name="email" class="form-control" 
-                                placeholder="Enter Email" formControlName="email"  
-                                [ngClass]="{ 'is-invalid': submitted && f.email.errors }" />
-                                <div *ngIf="submitted && f.email.errors" class="invalid-feedback">
-                                    <div *ngIf="f.email.errors.required">Email is required</div>
-                                    <div *ngIf="f.email.errors.email">Email seems to be not valid</div>
-                                </div>
+<div class="panel">
+    <div class="panel-body">
+        <h1 class="text-center" style="color: rgb(0,123,255)"><u>Contact Us</u></h1><br>
+        <h4 class="text-center">Have a question or a concern?</h4>
+        <h5 class="text-center">Make sure to submit your query</h5><br>
+
+        <div class="panel panel-primary">
+            <div class="panel-body">
+                <div class="center">
+                    <form [formGroup]="contactusForm" (ngSubmit)="contactusHandler()">
+                        <div class="form-group">
+                            <label for="email">Email</label>
+                            <input type="email" id="email" name="email" class="form-control" placeholder="Enter Email"
+                                formControlName="email" [ngClass]="{ 'is-invalid': submitted && f.email.errors }" />
+                            <div *ngIf="submitted && f.email.errors" class="invalid-feedback">
+                                <div *ngIf="f.email.errors.required">Email is required</div>
+                                <div *ngIf="f.email.errors.email">Email seems to be not valid</div>
                             </div>
-                            <div class="form-group">
-                                <label for="query">Query</label>
-                                <textarea id="query" name="query" class="form-control"
+                        </div>
+                        <div class="form-group">
+                            <label for="query">Query</label>
+                            <textarea id="query" name="query" class="form-control"
                                 placeholder="Enter your query here..." formControlName="query"
                                 [ngClass]="{ 'is-invalid': submitted && f.query.errors }"></textarea>
-                                <div *ngIf="submitted && f.query.errors" class="invalid-feedback">
-                                    <div *ngIf="f.query.errors.required">Query is required</div>
-                                </div>
+                            <div *ngIf="submitted && f.query.errors" class="invalid-feedback">
+                                <div *ngIf="f.query.errors.required">Query is required</div>
                             </div>
-                            <button type="submit" class="btn btn-success">Submit</button>
-                            <button type="reset" class="btn btn-danger">Reset</button>
-                        </form>
-                        <br><br>
-                        <div *ngIf="validated">
-                            <p class="alert-success">We will contact you soon</p>
                         </div>
+                        <button type="submit" class="btn btn-success">Submit</button>&nbsp;
+                        <button type="reset" class="btn btn-danger">Reset</button>
+                    </form>
+                    <br><br>
+                    <div *ngIf="validated">
+                        <p class="alert alert-success">We will contact you soon</p>
                     </div>
                 </div>
             </div>
         </div>
     </div>
-
+</div>
