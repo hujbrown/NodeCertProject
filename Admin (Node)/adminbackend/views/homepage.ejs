@@ -10,6 +10,12 @@
   </head>
   <body>
     <% include featureViews/menuItemsLoggedIn %>
+    <div class="text-center">
+      <div class="alert alert-info">
+          <span>Admin Name  : <%= user.name %>,  </span><br>
+          <span>Email : <%= user.email %>  </span>
+      </div>
+  </div>
     <h4 class="text-center">News List</h4>
     <table id="newsList" class="table">
       <thead>
