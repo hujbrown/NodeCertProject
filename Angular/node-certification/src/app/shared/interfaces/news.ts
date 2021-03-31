@@ -1,8 +1,8 @@
 export interface INews {
     id: Number, 
-    title: String, 
-    description: String,
-    url: String, 
-    urlofimg: String,
+    title: string, 
+    description: string,
+    url: string, 
+    imgUrl: string,
     createdOn: Date
 }

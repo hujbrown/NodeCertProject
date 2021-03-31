@@ -16,9 +16,6 @@ export class LatestNewsComponent implements OnInit {
 
 
   newsList: INews[] = [];
-  slicedList: INews[] = [];
-
-  //newsList: any;
 
 
   constructor(private latestNewsService: LatestNewsService) { }
@@ -33,11 +30,6 @@ export class LatestNewsComponent implements OnInit {
    
 
     
-  }
-  get sortedNews() {
-    return this.newsList.sort((a, b) => {
-      return <any>new Date(b.createdOn) - <any>new Date(a.createdOn);
-    });
   }
 
 }
