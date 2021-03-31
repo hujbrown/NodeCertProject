@@ -26,10 +26,13 @@
  }
  .left {
     left: 0;
+   text-align: center;
    
  }
  .right {
     right: 0;
+   text-align: center;
+
  }
  .centered {
     position: absolute;
@@ -41,5 +44,10 @@
  .centered img {
     width: 150px;
     border-radius: 50%;
+ }
+
+ h1 {
+    color: #007BFF;
+    
  }
 
