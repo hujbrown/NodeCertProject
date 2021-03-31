@@ -15,8 +15,11 @@ const userRoutes = require('./routes/routeUser');
 
 
 var homepageRouter = require('./routes/homepage');
-var addRouter = require('./routes/add')
-var newsListRouter =require('./routes/api')
+var addRouter = require('./routes/add');
+var newsListRouter =require('./routes/api');
+var editRouter = require('./routes/edit');
+var deleteRouter = require('./routes/delete');
+
 var app = express();
 const port = 3000;
 var http = require('http').createServer(app);
@@ -84,6 +87,8 @@ app.use('/users', usersRouter);
 app.use('/homepage', homepageRouter);
 app.use('/add', addRouter);
 app.use('/api', newsListRouter);
+app.use('/edit', editRouter);
+app.use('/delete', deleteRouter);
 
 
 // catch 404 and forward to error handler
