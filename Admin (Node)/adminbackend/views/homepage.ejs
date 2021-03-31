@@ -9,6 +9,7 @@
    
   </head>
   <body>
+    <% include featureViews/menuItemsLoggedIn %>
     <h4 class="text-center">News List</h4>
     <table id="newsList" class="table">
       <thead>
@@ -96,6 +97,6 @@
     $('#newsList').DataTable();
     } );
     </script>
- 
+  <% include featureViews/footer %>
   </body>
 </html>
