@@ -2,7 +2,7 @@
   <ngb-carousel style="max-width: 50%">
     <ng-template ngbSlide *ngFor="let news of newsList">
       <div class="picsum-img-wrapper">
-        <a [href]="news.url"> <img [src]="news.urlofimg" alt="Random first slide" style="width: 100%; max-height:600px; margin:0 auto;"></a>
+        <a [href]="news.url"> <img [src]="news.urlofimg" alt="Random first slide" style="height: 600px; width: 100%; max-height:600px; margin:0 auto;"></a>
       </div>
       <div class="carousel-caption">
         <h3> {{news.title}}</h3>

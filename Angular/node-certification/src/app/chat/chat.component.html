@@ -1,36 +1,34 @@
 <ng-template #content let-modal>
-    <div class="modal-header">
-      <h4 class="modal-title" id="modal-basic-title">Chat with others!</h4>
-      <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
-        <span aria-hidden="true">&times;</span>
-      </button>
+  <div class="modal-header">
+    <h4 class="modal-title" id="modal-basic-title">Chat with others!</h4>
+    <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  <div class="modal-body">
+
+    <!-- chat app start -->
+    <div class="chat-messages">
+      <label class="username">Name:
+        <input class="chat-name" type="text" [(ngModel)]="name">
+      </label>
+      <div class="chat-messages-show-container">
+        <ul class="chat-messages-show-list">
+          <li class="msglist-item" *ngFor="let msg of messageList">{{msg}}</li>
+        </ul>
+      </div>
+      <div class="chat-messages-create-container">
+        <input class="chat-messages-create-input" type="text" placeholder="Type message.." [(ngModel)]="message">
+        <button class="chat-messages-create-button" (click)="SendMessage()"> Send </button>
+
+      </div>
     </div>
-    <div class="modal-body">
-        <!-- <iframe src="http://localhost:3200/chat" width="100%" height="500" frameborder="0" title="Chat Application"></iframe> -->
-   
-        <!-- chat app start -->
-        <div class="chat-messages">
-          <label class="username">Name:
-              <input class="chat-name" type="text" [(ngModel)]="name">
-          </label>
-          <div class="chat-messages-show-container">
-              <ul class="chat-messages-show-list">
-                  <li class="msglist-item" *ngFor="let msg of messageList">{{msg}}</li>
-              </ul>
-          </div>
-          <div class="chat-messages-create-container">
-              <!-- <label for="msg"><b>Message</b></label> -->
-              <input class="chat-messages-create-input" type="text" placeholder="Type message.."
-                  [(ngModel)]="message">
-              <button class="chat-messages-create-button" (click)="SendMessage()"> Send </button>
-        
-          </div>
-        </div>
-<!-- chat app end -->
-    </div>
-    <div class="modal-footer">
-      <button type="button" class="btn btn-outline-dark" (click)="modal.close('Save click')">Exit</button>
-    </div>
-  </ng-template>
-  
-  <button class="btn btn-lg btn-outline-primary" style="position:fixed; bottom:0px; right:0px; margin:0px;" (click)="openLg(content)">Launch Chat</button>
+    <!-- chat app end -->
+  </div>
+  <div class="modal-footer">
+    <button type="button" class="btn btn-outline-dark" (click)="modal.close('Save click')">Exit</button>
+  </div>
+</ng-template>
+
+<button class="btn btn-lg btn-outline-primary" style="position:fixed; bottom:0px; right:0px; margin:0px;"
+  (click)="openLg(content)">Launch Chat</button>
