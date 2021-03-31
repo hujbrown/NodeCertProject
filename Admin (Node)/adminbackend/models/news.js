@@ -4,7 +4,7 @@ const News = new mongoose.Schema({
     title: String,
     description: String,
     url: String,
-    urlofimg: String,
+    imgUrl: String,
     createdOn: {type: Date, default: Date.now}
 
 });
