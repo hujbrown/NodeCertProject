@@ -2,7 +2,7 @@
   <ngb-carousel style="max-width: 50%">
     <ng-template ngbSlide *ngFor="let news of newsList">
       <div class="picsum-img-wrapper">
-        <a [href]="news.url"> <img [src]="news.imgUrl" alt="Random first slide" style="height: 600px; width: 100%; max-height:600px; margin:0 auto;"></a>
+        <a [href]="news.url" target="_blank" rel="noopener noreferrer"> <img [src]="news.imgUrl" alt="Random first slide" style="height: 600px; width: 100%; max-height:600px; margin:0 auto;"></a>
       </div>
       <div class="carousel-caption">
         <div class="container p-3 my-3 bg-dark text-white" style="opacity: .8">
@@ -18,7 +18,7 @@
     
     <div class="card" style="width: 16%;" *ngFor="let news of newsList;  let i=index">
       
-        <a [href]="news.url"><img class="card-img-top" [src]="news.imgUrl" alt="Card image cap"></a>
+        <a [href]="news.url" target="_blank" rel="noopener noreferrer"><img class="card-img-top" [src]="news.imgUrl" alt="Card image cap"></a>
         <div class="card-body">
           <h5 class="card-title">{{news.title}}</h5>
           <p class="card-text">{{ (news.description.length>75)? (news.description | slice:0:75)+'...':(news.description) }}</p>
