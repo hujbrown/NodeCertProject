@@ -12,10 +12,10 @@ export class NewsComponent implements OnInit {
 
   newsList : INews[] = []
 
-  constructor(private news_service : NewsService, private router : Router) { }
+  constructor(private newsService : NewsService, private router : Router) { }
 
   ngOnInit(): void {
-    this.news_service.get_news().subscribe((res:any) => {
+    this.newsService.get_news().subscribe((res:any) => {
       this.newsList = res
     });
   }

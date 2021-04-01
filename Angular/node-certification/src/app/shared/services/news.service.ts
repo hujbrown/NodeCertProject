@@ -9,7 +9,7 @@ import { INews } from '../interfaces/news';
 })
 export class NewsService {
 
-  base_url: string = 'http://localhost:3000/api/sports'
+  baseUrl: string = 'http://localhost:3000/api/sports'
 
   constructor(private http: HttpClient) { }
 
@@ -17,7 +17,7 @@ export class NewsService {
 
 
   get_news(): Observable<any> {
-    return this.http.get(this.base_url)
+    return this.http.get(this.baseUrl)
     .pipe( map( (res:any ) => {
       return res;
     }));
