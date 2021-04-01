@@ -56,18 +56,24 @@
                   </div>
                   <div class="modal-body">
                     <form class="card-body" style="width: 30rem;" method="POST" action="/newsList/editNews">
-                      <input type="hidden" name="_id" value="<%= newsData[i]._id %>">
+                      <input type="hidden" name="_id" value="<%= newsData[i]._id %>" required>
                       <label for="title" class="form-label">Title</label>
-                      <input type="text" name="title" class="form-control" id="title" placeholder="Enter Title" value="<%= newsData[i].title %>">
+                      <input type="text" name="title" class="form-control" id="title" placeholder="Enter Title" value="<%= newsData[i].title %>" required>
                       <br>
                       <label for="description" class="form-label">Description</label>
-                      <textarea type="text" name="description" class="form-control" id="description" placeholder="Enter Description" rows="4"><%= newsData[i].description %></textarea>
+                      <textarea type="text" name="description" class="form-control" id="description" placeholder="Enter Description" rows="4" required><%= newsData[i].description %></textarea>
                       <br>
+                      <label for="category">Category</label>
+                      <select id="category" name="category" class="form-control" required>
+                        <option value="<%= newsData[i].category %>" selected><%= newsData[i].category %></option>
+                        <option value="normal">normal</option>
+                        <option value="sports">sports</option>
+                      </select><br>
                       <label for="url" class="form-label">Article Url</label>
-                      <input type="text" name="url" class="form-control" id="url" placeholder="Enter article url" value="<%= newsData[i].url %>">
+                      <input type="text" name="url" class="form-control" id="url" placeholder="Enter article url" value="<%= newsData[i].url %>" required>
                       <br>
                       <label for="imgUrl" class="form-label">Article Image Link</label>
-                      <input type="text" name="imgUrl" class="form-control" id="imgUrl" placeholder="Enter image link" value="<%= newsData[i].imgUrl %>">
+                      <input type="text" name="imgUrl" class="form-control" id="imgUrl" placeholder="Enter image link" value="<%= newsData[i].imgUrl %>" required>
                       <br>
                       <div class="modal-footer">
                         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>

@@ -7,7 +7,7 @@ const Contact = require('../models/contact');
 router.get('/newsList', function(req, res, next) {
   let numArticles = parseInt(req.query.numArticles);
   if(numArticles){
-    News.find({}).sort({'createdOn': -1}).limit(numArticles).exec(function(err,data) {
+    News.find({category: "normal"}).sort({'createdOn': -1}).limit(numArticles).exec(function(err,data) {
       if(!err){
           res.status(200).json(data)
       } else {
@@ -42,5 +42,17 @@ router.get('/newsList', function(req, res, next) {
       console.log(req.body);
     })
    });
+
+   router.get('/sports', function(req, res, next) {
+    News.find({category: "sports"}, (err, newsData)=>{
+      if(!err){
+        res.status(200).json(newsData);
+      }
+      else{
+        res.json(err);
+      }
+    }) 
+    
+  });
 
   module.exports = router;

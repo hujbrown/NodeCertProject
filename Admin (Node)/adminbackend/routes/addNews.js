@@ -43,7 +43,7 @@ router.post('/', function (req, res, next) {
       newsDao.save((err, status) => {
         if (!err) {
           //res.redirect("/newsList");
-          const string = encodeURIComponent('You article is added in news list...');
+          const string = encodeURIComponent('Your article was added in the news list...');
           res.redirect('/newsList?msg=' + string);
         }
         else {

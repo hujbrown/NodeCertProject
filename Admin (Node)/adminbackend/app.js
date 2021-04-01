@@ -115,16 +115,13 @@ http.listen(port, "127.0.0.1", () => {
 })
 
 io.on('connection', (socket) =>{
-  console.log('a user connected');
+  //console.log('a user connected');
   socket.on('message', (msg) => {
     console.log(msg);
     socket.broadcast.emit('message-broadcast', msg);
   });
 });
 
-// app.listen(port, () => {
-//   console.log(`Example app listening at http://localhost:${port}`)
-// })
 
 
 

@@ -9,7 +9,7 @@ import { INews } from '../interfaces/news';
 })
 export class NewsService {
 
-  base_url: string = 'http://localhost:3000/api/newsList'
+  base_url: string = 'http://localhost:3000/api/sports'
 
   constructor(private http: HttpClient) { }
 

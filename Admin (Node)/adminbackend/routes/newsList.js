@@ -53,6 +53,7 @@ router.post('/editNews', function(req, res, next) {
       News.findOneAndUpdate({_id: req.body._id }, 
         {title: req.body.title ,
          description: req.body.description,
+         category: req.body.category,
          url: req.body.url,
          imgUrl: req.body.imgUrl},{new: true}, (err, doc) =>{
         if (!err){
@@ -78,7 +79,6 @@ router.post('/editNews', function(req, res, next) {
       res.send("<h1>Unable to delete...</h1>");
   }
   else{
-      console.log("Deleted news : ", docs);
       //res.redirect("/newsList");
       const string = encodeURIComponent('News has been Deleted');
       res.redirect('/newsList/?msg=' + string);
