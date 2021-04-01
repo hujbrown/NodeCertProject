@@ -79,7 +79,6 @@ router.post('/editNews', function(req, res, next) {
       res.send("<h1>Unable to delete...</h1>");
   }
   else{
-      console.log("Deleted news : ", docs);
       //res.redirect("/newsList");
       const string = encodeURIComponent('News has been Deleted');
       res.redirect('/newsList/?msg=' + string);
