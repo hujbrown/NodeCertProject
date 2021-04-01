@@ -17,7 +17,7 @@ export class ContactusService {
 
   //  console.log(email , query);
   
-    const test = `{"Email": "${email}", "Msg": "${query}"}`;
+    const test = `{"email": "${email}", "msg": "${query}"}`;
 
     const httpOptions = {
       headers: new HttpHeaders({
