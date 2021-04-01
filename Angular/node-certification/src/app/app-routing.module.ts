@@ -11,7 +11,6 @@ const routes: Routes = [
   {path: '', component:HomepageComponent},
   {path: 'contactus', component:ContactUsComponent},
   {path: 'aboutus', component:AboutUsComponent},
-  {path: 'weather_test', component:WeatherComponent},
   {path: 'sports', component:NewsComponent},
   {path: '**', component: PagenotfoundComponent}
 

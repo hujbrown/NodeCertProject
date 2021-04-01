@@ -5,7 +5,7 @@ import { INews } from '../../interfaces/news';
 @Component({
   selector: 'app-latest-news',
   templateUrl: './latest-news.component.html',
-  styleUrls: ['./latest-news.component.css']
+  styleUrls: []
 })
 
 
