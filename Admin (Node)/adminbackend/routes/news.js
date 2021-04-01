@@ -43,4 +43,16 @@ router.get('/newsList', function(req, res, next) {
     })
    });
 
+   router.get('/sports', function(req, res, next) {
+    News.find({category: "sports"}, (err, newsData)=>{
+      if(!err){
+        res.status(200).json(newsData);
+      }
+      else{
+        res.json(err);
+      }
+    }) 
+    
+  });
+
   module.exports = router;

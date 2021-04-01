@@ -53,6 +53,7 @@ router.post('/editNews', function(req, res, next) {
       News.findOneAndUpdate({_id: req.body._id }, 
         {title: req.body.title ,
          description: req.body.description,
+         category: req.body.category,
          url: req.body.url,
          imgUrl: req.body.imgUrl},{new: true}, (err, doc) =>{
         if (!err){

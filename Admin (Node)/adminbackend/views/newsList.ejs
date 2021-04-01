@@ -63,6 +63,12 @@
                       <label for="description" class="form-label">Description</label>
                       <textarea type="text" name="description" class="form-control" id="description" placeholder="Enter Description" rows="4"><%= newsData[i].description %></textarea>
                       <br>
+                      <label for="category">category</label>
+                      <select id="category" name="category" class="form-control">
+                        <option value="<%= newsData[i].category %>" selected><%= newsData[i].category %></option>
+                        <option value="sports">sports</option>
+                        <option value="normal">normal</option>
+                      </select><br>
                       <label for="url" class="form-label">Article Url</label>
                       <input type="text" name="url" class="form-control" id="url" placeholder="Enter article url" value="<%= newsData[i].url %>">
                       <br>
